@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
@@ -12,7 +12,7 @@ def connect():
     password = request.form.get('motdepasse')
 
     if user == "CA847390261" and password == "1615":
-        return redirect('/dashboard')
+        return redirect(url_for('dashboard'))
     else:
         return "❌ Identifiant ou mot de passe incorrect"
 
